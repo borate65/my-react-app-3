@@ -1,50 +1,56 @@
 import { useState } from "react";
 
 function App() {
-  let [theme, setTheme] = useState("primary");
+  let [list] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  let [theam, setTheam] = useState("primary");
 
-  // Member funcn
-  let makePrimaryTheme = () => {
-    theme = "primary";
-    setTheme(theme);
+  //member Function
+  let makePrimaryTheam = () => {
+    theam = "primary";
+    setTheam(theam);
   };
-
-  let makeSuccessTheme = () => {
-    theme = "success";
-    setTheme(theme);
+  let makeSuccessTheam = () => {
+    theam = "success";
+    setTheam(theam);
   };
-
-  let makeDangerTheme = () => {
-    theme = "danger";
-    setTheme(theme);
+  let makeDangerTheam = () => {
+    theam = "danger";
+    setTheam(theam);
   };
 
   return (
     <div>
-      <h1 className={`bg-${theme} text-light p-3`}>
-        Bootstrap Styling! {theme}
-      </h1>
-
-      <input
-        className="btn btn-primary"
-        type="button"
-        value="Primary Theme"
-        onClick={makePrimaryTheme}
-      />
-      <input
-        className="btn btn-success"
-        type="button"
-        value="Success Theme"
-        onClick={makeSuccessTheme}
-      />
-      <input
-        className="btn btn-danger"
-        type="button"
-        value="Danger Theme"
-        onClick={makeDangerTheme}
-      />
+      <div>
+        <h1 className={`bg-${theam} text-light p-3`}>BootStrap Styling!!</h1>
+        <input
+          className="btn btn-primary"
+          type="button"
+          value=""
+          onClick={makePrimaryTheam}
+        />
+        <input
+          className="btn btn-success"
+          type="button"
+          value=""
+          onClick={makeSuccessTheam}
+        />
+        <input
+          className="btn btn-danger"
+          type="button"
+          value=""
+          onClick={makeDangerTheam}
+        />
+      </div>
+      {list.map((item) => (
+        <div className={`alert alert-${theam} m-4`}>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia,
+          corrupti commodi assumenda nam ipsam nobis, quis neque nihil magnam
+          deserunt iste. Atque consectetur doloremque tenetur, fugiat accusamus
+          magni aliquid dolorem.
+        </div>
+      ))}
+      ;
     </div>
   );
 }
-
 export default App;
