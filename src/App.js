@@ -1,15 +1,11 @@
-//3. example --------------------------------------
+/** 2.example--------------------------------------- */
 
+import "./index.js";
 function App() {
   return (
     <div>
-      <h1 className="bg-dark text-light p-3">Bootstrap Styling!</h1>
-
-      <h1 className="bg-success" style={{ color: "#fff" }}>
-        hello
-      </h1>
+      <h1 className="butify">External CSS styling</h1>
     </div>
   );
 }
-
 export default App;
