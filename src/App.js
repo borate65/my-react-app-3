@@ -1,15 +1,15 @@
-/** 2.example--------------------------------------- */
+//3. example --------------------------------------
 
-import "./index.js";
-{
-  /**this statement we write in index.js
-because it is globally access file*/
-}
 function App() {
   return (
     <div>
-      <h1 className="butify">External CSS styling</h1>
+      <h1 className="bg-dark text-light p-3">Bootstrap Styling!</h1>
+
+      <h1 className="bg-success" style={{ color: "#fff" }}>
+        hello
+      </h1>
     </div>
   );
 }
+
 export default App;
