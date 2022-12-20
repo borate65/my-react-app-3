@@ -1,36 +1,51 @@
-import { useState } from "react";
-
 function App() {
-  let [theam, setTheam] = useState();
+  let clickMe1 = () => {
+    console.log("Hello");
+  };
 
-  let updateTheam = (p1 = "primary") => {
-    //this is member function
-    theam = p1;
-    setTheam(theam);
+  let clickMe2 = (e) => {
+    console.log(e);
+  };
+
+  // Custom Parameter :: using arrow funcn
+  let clickMe3 = (p1) => {
+    console.log(p1);
+  };
+
+  let clickMe4 = (e, p1) => {
+    console.log(e, p1);
   };
 
   return (
     <div>
-      <h1 className={`bg-${theam} text-light p-3`}>Bootstrap styling theam</h1>
+      <h1>Btn Click Demo</h1>
+
+      {/** Default No param */}
+      <input type="button" value="Click Me 1" onClick={clickMe1} />
+
+      {/** Default Event Param */}
+      <input type="button" value="Click Me 2" onClick={clickMe2} />
+
+      {/** Custom Param */}
       <input
-        className="btn btn-primary"
         type="button"
-        value="primary"
-        onClick={() => updateTheam("primary")}
+        value="Click Me 3"
+        onClick={() => clickMe3("primary")}
       />
       <input
-        className="btn btn-success"
         type="button"
-        value="success"
-        onClick={() => updateTheam("success")}
+        value="Click Me 3"
+        onClick={() => clickMe3("danger")}
       />
+
+      {/** Event + Custom Param */}
       <input
-        className="btn btn-danger"
         type="button"
-        value="danger"
-        onClick={() => updateTheam("danger")}
+        value="Click Me 4"
+        onClick={(e) => clickMe4(e, "adsfaf adsf")}
       />
     </div>
   );
 }
+
 export default App;
