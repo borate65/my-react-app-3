@@ -46,7 +46,7 @@ function App() {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia,
           corrupti commodi assumenda nam ipsam nobis, quis neque nihil magnam
           deserunt iste. Atque consectetur doloremque tenetur, fugiat accusamus
-          magni aliquid dolorem.
+          magni aliquid dolorem. lorem
         </div>
       ))}
       ;
