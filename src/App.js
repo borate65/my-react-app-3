@@ -1,48 +1,55 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  //this is for statefull application
-  let [title] = useState("Api Demo");
+  //data member
+  let [title] = useState("API DEMO");
   let [messageList, setMessageList] = useState([]);
 
-  let getAllMessage = async () => {
-    let url = `http://localhost:3001/message`;
-    let response = await axios.get(url);
+  //special function; Hook:: Like Construtor:: called while the componunt initilized.
+  //like default construtor
+  useEffect(() => {
+    // console.log("i am getting called");
+    getAllMessages();
+  }, []);
 
-    // console.log(response);
-    // getting the message from server:: And re-rendering
+  //member Function
+  let getAllMessages = async () => {
+    let url = `http://localhost:3001/messages`;
+    let response = await axios.get(url);
+    //console.log(response)
 
     messageList = [...response.data];
     setMessageList(messageList);
-
-    // console.log(response);
-    // Getting the Message From Server :: And re-rendering
   };
-
   let createNewMessage = async () => {
     let url = `http://localhost:3001`;
     let data = {
-      message: "test Message",
+      message: "cdac message",
       messageTime: new Date(),
       reply: true,
     };
     await axios.post(url, data);
+    //to refresh the content
+    getAllMessages();
   };
 
   return (
     <div>
       <h1>{title}</h1>
+
       <input
         type="button"
-        value="make ajax Api/Get Call"
-        onClick={getAllMessage}
+        value="Make Ajax/API GET Call"
+        onClick={getAllMessages}
       />
+
       <input
         type="button"
-        value="make ajax Api/Post Call"
+        value="Make Ajax/API POST Call"
         onClick={createNewMessage}
       />
+
       {messageList.map((item) => (
         <div>{item.message}</div>
       ))}
