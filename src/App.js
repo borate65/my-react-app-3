@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   // Data Member
+  let inputRef = useRef();
   let [title] = useState("API DEMO");
   let [message, setMessage] = useState("");
   let [messageList, setMessageList] = useState([]);
@@ -32,6 +33,11 @@ function App() {
 
   let createNewMessage = async () => {
     let url = `http://localhost:3001/message`;
+    // console.log(inputRef.current);
+    if (!inputRef.current.checkValidity()) {
+      alert("Invalid");
+      return;
+    }
 
     let data = {
       message: message,
@@ -47,6 +53,12 @@ function App() {
     getAllMessages();
   };
 
+  let checkEnterCode = (e) => {
+    if (e.keyCode == 13) {
+      createNewMessage();
+    }
+  };
+
   return (
     <div>
       <h1>{title}</h1>
@@ -56,10 +68,14 @@ function App() {
         placeholder="Hi...whatsapp...!!"
         value={message}
         onChange={handleOnChangeMessage}
+        onKeyUp={checkEnterCode}
+        ref={inputRef} // document.querySelector()
+        required
+        minLength={2}
       />
       <input
         type="button"
-        value="Make Ajax/API POST Call"
+        value="Make Ajax/API POST Call."
         onClick={createNewMessage}
       />
 
