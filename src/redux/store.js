@@ -9,13 +9,13 @@ let userAccountSlice = createSlice({
     username: "rohit",
   },
 
-  // Member Funcn
+  // Member Funcn::reducer function
   reducers: {
-    deposit: (state) => {
-      state.amount += 100;
+    deposit: (state, action) => {
+      state.amount += action.payload;
     },
-    withdraw: (state) => {
-      state.amount -= 200;
+    withdraw: (state, action) => {
+      state.amount -= action.payload;
     },
   },
 });
