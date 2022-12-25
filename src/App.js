@@ -22,7 +22,8 @@ function Counter1() {
       <input
         type="button"
         value="Deposit"
-        onClick={() => dispatch(deposit())}
+        onClick={() => dispatch(deposit(200))}
+        //we pass the parameter here(200)
       />
     </div>
   );
@@ -38,13 +39,13 @@ function Counter2() {
       <input
         type="button"
         value="Deposit"
-        onClick={() => dispatch(deposit())}
+        onClick={() => dispatch(deposit(100))}
       />
 
       <input
         type="button"
         value="Withdraw"
-        onClick={() => dispatch(withdraw())}
+        onClick={() => dispatch(withdraw(50))}
       />
     </div>
   );
